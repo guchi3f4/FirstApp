@@ -3,6 +3,7 @@ package com.example.demo.entity;
 import java.time.LocalDateTime;
 
 public class Inquiry {
+	
 	private int id;
 	private String name;
 	private String email;

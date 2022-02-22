@@ -29,6 +29,7 @@ public class InquiryDaoImpl implements InquiryDao {
 		);
 	}
 	
+	@Override
 	public List<Inquiry> getAll() {
 		String sql = "SELECT id, name, email, contents, created FROM Inquiry";
 		List<Map<String, Object>> resultList = jdbcTemplate.queryForList(sql);
@@ -43,6 +44,14 @@ public class InquiryDaoImpl implements InquiryDao {
 			list.add(inquiry);
 		}
 		return list;
+	}
+
+	@Override
+	public int updateInquiry(Inquiry inquiry) {
+		return jdbcTemplate.update(
+			"UPDATE inquiry SET name = ?, email = ?, contents = ? WHERE id = ?",
+			inquiry.getName(), inquiry.getEmail(), inquiry.getContents(), inquiry.getId()
+		);
 	}
 
 }
