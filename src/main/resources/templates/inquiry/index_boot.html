@@ -1,0 +1,92 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="">
+		<meta name="author"
+			content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+		<meta name="generator" content="Hugo 0.83.1">
+		<title th:text="${title}">Top navbar example · Bootstrap v5.0</title>
+		
+		<link rel="canonical"
+			href="https://getbootstrap.jp/docs/5.0/examples/navbar-static/">
+		
+		
+		
+		<!-- Bootstrap core CSS -->
+		<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet"
+			integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+			crossorigin="anonymous">
+		
+		<!-- Favicons -->
+		<link rel="apple-touch-icon"
+			href="/docs/5.0/assets/img/favicons/apple-touch-icon.png"
+			sizes="180x180">
+		<link rel="icon" href="/docs/5.0/assets/img/favicons/favicon-32x32.png"
+			sizes="32x32" type="image/png">
+		<link rel="icon" href="/docs/5.0/assets/img/favicons/favicon-16x16.png"
+			sizes="16x16" type="image/png">
+		<link rel="manifest" href="/docs/5.0/assets/img/favicons/manifest.json">
+		<link rel="mask-icon"
+			href="/docs/5.0/assets/img/favicons/safari-pinned-tab.svg"
+			color="#7952b3">
+		<link rel="icon" href="/docs/5.0/assets/img/favicons/favicon.ico">
+		<meta name="theme-color" content="#7952b3">
+		
+		<style>
+		.bd-placeholder-img {
+			font-size: 1.125rem;
+			text-anchor: middle;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			user-select: none;
+		}
+		
+		@media ( min-width : 768px) {
+			.bd-placeholder-img-lg {
+				font-size: 3.5rem;
+			}
+		}
+		</style>
+		
+		
+		<!-- Custom styles for this template -->
+		<link th:href="@{/css/navbar.css}" rel="stylesheet">
+	</head>
+	
+	<body>
+		<div th:replace="~{block/header::headerA}"></div>
+		
+		<main class="container">
+			<h1 th:text="${title}" class="mb-3 text-center"></h1>
+			<div class="col-9 mx-auto">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th scope="col">#</th>
+							<th scope="col">Name</th>
+							<th scope="col">Email</th>
+							<th scope="col">Content</th>
+							<th scope="col">Datetime</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="inquiry : ${inquiryList}">
+							<td th:text="${inquiry.id}"></td>
+							<td th:text="${inquiry.name}"></td>
+							<td th:text="${inquiry.email}"></td>
+							<td th:text="${inquiry.contents}"></td>
+							<td th:text="${inquiry.created}"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</main>
+	
+		<script th:src="@{/js/bootstrap.bundle.min.js}"
+			integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+			crossorigin="anonymous"></script>
+	
+	</body>
+</html>
